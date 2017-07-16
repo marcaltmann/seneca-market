@@ -14,11 +14,20 @@ seneca.use('entity')
 })
 
 seneca.ready(function() {
-  let apple = seneca.make$('fruit')
-  apple.name = 'Pink Lady'
-  apple.price = 0.99
-  apple.save$(function(err, apple) {
-    console.log('output', apple, apple.id)
-    seneca.close()
+  seneca.add({cmd: 'salestax'}, function(msg, done) {
+    let rate  = 0.19
+    let total = msg.net * (1 + rate)
+    done(null, {total: total})
+  })
+
+  seneca.act({cmd: 'salestax', net: 59.23}, function(err, result) {
+    let apple = seneca.make$('fruit')
+    apple.name = 'Pink Lady'
+    apple.price = result.total
+    apple.save$(function(err, apple) {
+      console.log('output', apple, apple.id)
+      seneca.close()
+    })
+    console.log(result.total)
   })
 })
