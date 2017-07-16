@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marc Altmann <marcaltmann@posteo.de>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "seneca": "^3.4.1",
+    "seneca-entity": "^2.0.2",
+    "seneca-jsonfile-store": "^1.0.1",
+    "seneca-mongo-store": "^1.1.0"
+  }
 }
