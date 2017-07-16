@@ -1,5 +1,5 @@
 const seneca = require('seneca')()
 
 seneca
-  .use('app')
-  .listen()
+  .use('application')
+  .listen({type: 'tcp', pin: 'role:application'})

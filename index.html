@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+</head>
+<body>
+  <h1>Die App-Version ist…</h1>
+  <p id="appversion"></p>
+
+<script>
+  fetch('/api/appversion')
+  .then(res => res.json())
+  .then((result) => {
+    let version = result.version
+    let elem = document.getElementById('appversion')
+    elem.innerHTML = version
+  })
+</script>
+</body>
+</html>

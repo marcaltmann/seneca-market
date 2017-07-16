@@ -9,9 +9,13 @@
   "author": "Marc Altmann <marcaltmann@posteo.de>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
     "seneca": "^3.4.1",
     "seneca-entity": "^2.0.2",
     "seneca-jsonfile-store": "^1.0.1",
-    "seneca-mongo-store": "^1.1.0"
+    "seneca-mongo-store": "^1.1.0",
+    "seneca-web": "^2.1.0",
+    "seneca-web-adapter-express": "^1.0.2"
   }
 }

@@ -1,7 +1,7 @@
 const seneca = require('seneca')()
 
 seneca
-  .client()
-  .act('role:app,cmd:version', function(err, result) {
+  .client({type: 'tcp', pin: 'role:application'})
+  .act('role:application,cmd:version', function(err, result) {
     console.log(result.version)
   })
