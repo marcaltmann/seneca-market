@@ -1,0 +1,16 @@
+fuge_global:
+  tail: true
+  monitor: false
+  monitor_excludes:
+    - '**/node_modules/**'
+    - '**/.git/**'
+    - '*.log'
+microservice:
+  type: process
+  path: ./
+  run: 'node server.js'
+
+webserver:
+  type: process
+  path: ./
+  run: 'node app.js'
