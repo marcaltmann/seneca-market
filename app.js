@@ -2,7 +2,6 @@ const SenecaWeb = require('seneca-web')
 const Express = require('express')
 const Router = Express.Router
 const context = new Router()
-const path = require('path')
 
 const senecaWebConfig = {
   context: context,
@@ -11,12 +10,14 @@ const senecaWebConfig = {
 }
 
 let app = Express()
-  .use( require('body-parser').json() )
-  .use( context )
-  .get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'index.html'));
+  .use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
   })
-  .listen(3000)
+  .use(require('body-parser').json())
+  .use(context)
+  .listen(3000);
 
 let seneca = require('seneca')()
   .use(SenecaWeb, senecaWebConfig )

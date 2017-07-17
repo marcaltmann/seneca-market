@@ -8,7 +8,7 @@
   <p id="appversion"></p>
 
 <script>
-  fetch('/api/appversion')
+  fetch('http://localhost:3000/api/appversion')
   .then(res => res.json())
   .then((result) => {
     let version = result.version

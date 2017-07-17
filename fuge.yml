@@ -10,7 +10,12 @@ microservice:
   path: ./
   run: 'node server.js'
 
-webserver:
+api:
   type: process
   path: ./
   run: 'node app.js'
+
+webserver:
+  type: process
+  path: ./
+  run: 'node index.js'
