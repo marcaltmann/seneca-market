@@ -6,7 +6,7 @@ const context = new Router();
 const senecaWebConfig = {
   context: context,
   adapter: require('seneca-web-adapter-express'),
-  options: { parseBody: false } // so we can use body-parser
+  options: { parseBody: true } // so we can use body-parser
 };
 
 let app = Express()
@@ -22,4 +22,5 @@ let app = Express()
 let seneca = require('seneca')()
   .use(SenecaWeb, senecaWebConfig )
   .use('api')
-  .client( { type:'tcp', pin:'role:appversion' } );
+  .client( { type:'tcp', pin:'role:appversion' } )
+  .client( { type:'tcp', pin:'role:comment' } );

@@ -6,12 +6,17 @@ fuge_global:
     - '**/.git/**'
     - '*.log'
 
-microservice:
+appversion:
   type: process
   path: ./appversion/
   run: 'node index.js'
 
-api:
+comment:
+  type: process
+  path: ./comment/
+  run: 'node index.js'
+
+apiserver:
   type: process
   path: ./apiserver/
   run: 'node index.js'

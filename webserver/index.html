@@ -2,19 +2,21 @@
 <html>
 <head>
   <title>Test</title>
+  <script src="/app.js"></script>
 </head>
 <body>
   <h1>Die App-Version ist…</h1>
   <p id="appversion"></p>
 
-<script>
-  fetch('http://localhost:3000/api/appversion')
-  .then(res => res.json())
-  .then((result) => {
-    let version = result.version
-    let elem = document.getElementById('appversion')
-    elem.innerHTML = version
-  })
-</script>
+  <h2>Interactive part</h2>
+  <form id="comment-form">
+    <label>
+      Enter comment
+      <input id="comment-input"/>
+    </label>
+    <button type="submit">
+      Submit
+    </button>
+  </form>
 </body>
 </html>
