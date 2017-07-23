@@ -5,17 +5,18 @@ fuge_global:
     - '**/node_modules/**'
     - '**/.git/**'
     - '*.log'
+
 microservice:
   type: process
-  path: ./
-  run: 'node server.js'
+  path: ./appversion/
+  run: 'node index.js'
 
 api:
   type: process
-  path: ./
-  run: 'node app.js'
+  path: ./apiserver/
+  run: 'node index.js'
 
 webserver:
   type: process
-  path: ./
+  path: ./webserver/
   run: 'node index.js'
